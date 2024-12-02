@@ -12,8 +12,9 @@ python = "^3.10"
 kafka-python = "^2.0.2"
 
 [tool.poetry.scripts]
-enqueue_messages = 'app.producer:main'
-dequeue_messages = 'app.consumer:main'
+enqueue_messages_cli = 'app.producer:main'
+enqueue_json_cli = 'app.enqueue_json:main'
+dequeue_messages_cli = 'app.consumer:main'
 
 [build-system]
 requires = ["poetry-core"]

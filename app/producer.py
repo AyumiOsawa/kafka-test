@@ -1,12 +1,13 @@
 from kafka import KafkaProducer
 
 
+producer = KafkaProducer(
+      bootstrap_servers=["localhost:9092"]
+  )
+
 TOPIC = "test"
 
 def main():
-  producer = KafkaProducer(
-      bootstrap_servers=["localhost:9092"]
-  )
   while True:
     # Get userinput from the CLI:
     input_str = input("Enter a message (type 'quit' to finish): ")

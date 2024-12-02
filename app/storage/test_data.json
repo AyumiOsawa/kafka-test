@@ -1,0 +1,14 @@
+{
+  "test": {
+    "msg": [
+      "this is some test message from a JSON file.",
+      "long massage" 
+    ],
+    "data": {
+      "name": "John Doe",
+      "age": 30,
+      "city": "New York"
+    }
+  },
+  "timestamp": 1600000000
+}
