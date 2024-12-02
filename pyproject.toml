@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "kafka"
+version = "0.1.0"
+description = ""
+authors = ["AyumiOsawa"]
+packages = [
+  { include = "app" },
+] 
+
+[tool.poetry.dependencies]
+python = "^3.10"
+kafka-python = "^2.0.2"
+
+[tool.poetry.scripts]
+enqueue_messages = 'app.producer:main'
+dequeue_messages = 'app.consumer:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
