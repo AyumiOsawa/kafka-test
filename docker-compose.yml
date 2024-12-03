@@ -1,8 +1,12 @@
+name: kafka-dev
 services:
   broker:
-    image: apache/kafka:latest
+    image: kafka-dev:1.0 # Change the name as needed.
     hostname: broker
     container_name: broker
+    env_file: ".env.dev" # Dev env file. Change to ".env.prduction" when in production.
+    volumes:
+      - ${HOST_LOG_PATH_DEV}:/tmp/kafka/logs # HOST_LOG_PATH for production. See .env file.
     ports:
       - 9092:9092
     environment:
@@ -21,5 +25,6 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://broker:29092,CONTROLLER://broker:29093,PLAINTEXT_HOST://0.0.0.0:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_LOG_DIRS: /tmp/kaflka-logs
+      KAFKA_LOG_DIRS: /tmp/kafka/logs
       CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    restart: unless-stopped
